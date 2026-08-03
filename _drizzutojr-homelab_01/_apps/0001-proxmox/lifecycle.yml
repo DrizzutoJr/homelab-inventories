@@ -1,5 +1,0 @@
-unique_id: 0001-lifecycle
-app_id: "0001"
-name: lifecycle
-description: This manages the lifecycles of VMs in the data center
-git_repo: DrizzutoJr/homelab-vm-lifecycle

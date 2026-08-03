@@ -1,16 +1,16 @@
 ---
 name: register-component
-description: Registers a new component under an existing app in a data center's app inventory (creates its {component_name}.yml under the app's _apps/ subfolder). Use when the user asks to register a component, e.g. "register a component for proxmox", "add a component to drjr-homelab-01".
+description: Registers a new component under an existing app in a data center's app inventory (creates its {component_name}.yml under the app's _apps/ subfolder). Use when the user asks to register a component, e.g. "register a component for proxmox", "add a component to drjr_hml_01".
 user-invocable: true
 ---
 
-Walk through these steps to register a new component. Do not skip steps or assume values — if you are not sure of a value, ask the user. Follow the rules recorded in the owning data center's ADR (e.g. `drjr-adr/_drjr-homelab-01/0003-application-inventory.md`):
+Walk through these steps to register a new component. Do not skip steps or assume values — if you are not sure of a value, ask the user. Follow the rules recorded in the owning data center's ADR (e.g. `drjr-adr/_drjr_hml_01/0003-application-inventory.md`):
 
 - Components must be registered before they are deployed.
 - Component `name`s must be unique within their parent app (not globally).
 - A component's `unique_id` is not numeric — it's `<app_unique_id>-<component_name>`.
 
-1. **Identify the data center.** If the user named one (e.g. "drjr-homelab-01"), use it. Otherwise list the top-level `_*` folders in this repo and ask via AskUserQuestion which data center this component's app belongs to. Apps live under `{data-center-folder}/_apps/`.
+1. **Identify the data center.** If the user named one (e.g. "drjr_hml_01"), use it. Otherwise list the top-level `_*` folders in this repo and ask via AskUserQuestion which data center this component's app belongs to. Apps live under `{data-center-folder}/_apps/`.
 
 2. **Identify the parent app.** List the subfolders under `{data-center-folder}/_apps/` (each is `{app_unique_id}-{app_name}`) and ask via AskUserQuestion which app this component belongs to, unless the user already named it unambiguously. Read that app's `.metadata.yml` to confirm its `unique_id`.
 
